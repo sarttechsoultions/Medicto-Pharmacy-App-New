@@ -1,0 +1,125 @@
+MedictoPharmacy/
+│
+├── android/
+├── ios/
+├── node_modules/
+│
+├── src/
+│   │
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   ├── fonts/
+│   │   └── animations/
+│   │
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── AppButton.js
+│   │   │   ├── AppInput.js
+│   │   │   ├── AppText.js
+│   │   │   ├── Loader.js
+│   │   │   └── Header.js
+│   │   │
+│   │   ├── cards/
+│   │   │   ├── ProductCard.js
+│   │   │   ├── CategoryCard.js
+│   │   │   └── OrderCard.js
+│   │   │
+│   │   └── modals/
+│   │       ├── LoginModal.js
+│   │       └── AddressModal.js
+│   │
+│   ├── config/
+│   │   ├── env.js
+│   │   ├── constants.js
+│   │   └── routes.js
+│   │
+│   ├── navigation/
+│   │   ├── AppNavigator.js
+│   │   ├── TabNavigator.js
+│   │   ├── AuthNavigator.js
+│   │   └── StackNavigator.js
+│   │
+│   ├── screens/
+│   │   ├── auth/
+│   │   │   ├── LoginScreen.js
+│   │   │   ├── SignupScreen.js
+│   │   │   ├── OTPScreen.js
+│   │   │   └── ForgotPasswordScreen.js
+│   │   │
+│   │   ├── home/
+│   │   │   ├── HomeScreen.js
+│   │   │   ├── SearchScreen.js
+│   │   │   └── CategoryScreen.js
+│   │   │
+│   │   ├── product/
+│   │   │   ├── ProductListScreen.js
+│   │   │   ├── ProductDetailsScreen.js
+│   │   │   └── AddToCartScreen.js
+│   │   │
+│   │   ├── cart/
+│   │   │   ├── CartScreen.js
+│   │   │   ├── CheckoutScreen.js
+│   │   │   └── PaymentScreen.js
+│   │   │
+│   │   ├── orders/
+│   │   │   ├── OrdersScreen.js
+│   │   │   └── OrderDetailsScreen.js
+│   │   │
+│   │   ├── profile/
+│   │   │   ├── ProfileScreen.js
+│   │   │   ├── EditProfileScreen.js
+│   │   │   ├── AddressScreen.js
+│   │   │   └── SettingsScreen.js
+│   │   │
+│   │   └── extra/
+│   │       ├── AboutScreen.js
+│   │       ├── ContactScreen.js
+│   │       └── HelpScreen.js
+│   │
+│   ├── redux/
+│   │   ├── store.js
+│   │   ├── slices/
+│   │   │   ├── authSlice.js
+│   │   │   ├── cartSlice.js
+│   │   │   ├── productSlice.js
+│   │   │   └── orderSlice.js
+│   │   │
+│   │   └── actions/
+│   │       ├── authActions.js
+│   │       └── productActions.js
+│   │
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── authService.js
+│   │   ├── productService.js
+│   │   ├── orderService.js
+│   │   └── paymentService.js
+│   │
+│   ├── utils/
+│   │   ├── helpers.js
+│   │   ├── validators.js
+│   │   ├── toast.js
+│   │   └── storage.js
+│   │
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   ├── useFetch.js
+│   │   └── useDebounce.js
+│   │
+│   ├── theme/
+│   │   ├── colors.js
+│   │   ├── fonts.js
+│   │   ├── spacing.js
+│   │   └── typography.js
+│   │
+│   ├── context/
+│   │   ├── AuthContext.js
+│   │   └── AppContext.js
+│   │
+│   └── App.js   (optional if you want inside src)
+│
+├── App.js
+├── index.js
+├── package.json
+└── README.md

@@ -1,45 +1,69 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
+import StackNavigator from './src/navigation/StackNavigator';
+import Toast from 'react-native-toast-message';
+import { ActivityIndicator, View, StyleSheet, Linking } from 'react-native';
+import useAuthBootstrap from './src/hooks/useAuthBootstrap';
+import { StatusBar } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import CartPopup from './src/components/CartPopup';
+import {toastConfig} from './src/components/toastConfig'
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+const linking = {
+  prefixes: [
+    'medictopharmacy://',              
+    'https://medictopharmacy.com',    
+  ],
+  config: {
+    screens: {
+      ProductDetails: 'medicine/:medicineId',
+    },
+  },
+};
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+function AppInner() {
+  const bootstrapped = useAuthBootstrap();
+
+  if (!bootstrapped) {
+    return (
+      <View style={styles.loader}>
+        <ActivityIndicator size="large" color="#B6005B" />
+      </View>
+    );
+  }
 
   return (
+    <SafeAreaView style={styles.root} edges={['bottom']}>
+      <NavigationContainer
+        linking={linking}
+        fallback={
+          <View style={styles.loader}>
+            <ActivityIndicator size="large" color="#B6005B" />
+          </View>
+        }
+      >
+        <StatusBar barStyle="dark-content" />
+        <StackNavigator />
+        <CartPopup />
+        <Toast config={toastConfig} />
+      </NavigationContainer>
+    </SafeAreaView>
+  );
+}
+
+export default function App() {
+  return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <Provider store={store}>
+        <AppInner />
+      </Provider>
     </SafeAreaProvider>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  root:   { flex: 1, backgroundColor: '#FFFFFF' },
+  loader: { flex: 1, justifyContent: 'center', alignItems: 'center' },
 });
-
-export default App;
