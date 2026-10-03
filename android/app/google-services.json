@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "568524805142",
+    "project_id": "medicto-app",
+    "storage_bucket": "medicto-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568524805142:android:76f15f32e068bd388fd137",
+        "android_client_info": {
+          "package_name": "com.medictopharmacy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpUUXq5MYhjfZ6oaunb5yjejmwNMhKaIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

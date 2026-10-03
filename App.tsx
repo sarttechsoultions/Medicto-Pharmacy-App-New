@@ -4,12 +4,14 @@ import { Provider } from 'react-redux';
 import { store } from './src/redux/store';
 import StackNavigator from './src/navigation/StackNavigator';
 import Toast from 'react-native-toast-message';
-import { ActivityIndicator, View, StyleSheet, Linking } from 'react-native';
+import { ActivityIndicator, View, StyleSheet } from 'react-native';
+import { useEffect } from 'react';
 import useAuthBootstrap from './src/hooks/useAuthBootstrap';
 import { StatusBar } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import CartPopup from './src/components/CartPopup';
 import {toastConfig} from './src/components/toastConfig'
+import {initializeNotifications, setupNotificationListeners} from './src/services/notificationService';
 
 const linking = {
   prefixes: [
@@ -25,6 +27,11 @@ const linking = {
 
 function AppInner() {
   const bootstrapped = useAuthBootstrap();
+
+  useEffect(() => {
+    initializeNotifications().catch(error => console.warn('Firebase notifications could not be initialized:', error));
+    return setupNotificationListeners();
+  }, []);
 
   if (!bootstrapped) {
     return (
